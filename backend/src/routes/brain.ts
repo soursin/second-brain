@@ -4,6 +4,7 @@ import { userMiddleware } from "../middleware/userMiddleware";
 import { content, link } from "../schema/db";
 export const brainRouter = express.Router();
 
+
 brainRouter.post("/" , userMiddleware , async (req : Request , res : Response) =>{
     const inputSchema = z.object({
         share : z.boolean()

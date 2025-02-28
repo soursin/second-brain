@@ -4,8 +4,8 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import { userContent } from "./routes/content";
 import { brainRouter } from "./routes/brain";
-
 dotenv.config();
+
 const app = express();
 app.use(express.json());
 app.use("/api/v1/user/", userRoutes);

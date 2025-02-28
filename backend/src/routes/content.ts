@@ -2,8 +2,8 @@ import express, { Request, Response } from "express"
 import { content } from "../schema/db";
 import { userMiddleware } from "../middleware/userMiddleware";
 import z from "zod";
-
 export const userContent = express.Router();
+
 
 userContent.get("/", userMiddleware, async (req: Request, res: Response) => {
     //@ts-ignore

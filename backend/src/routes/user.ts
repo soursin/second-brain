@@ -4,10 +4,10 @@ import bcrypt from "bcrypt"
 import { user } from "../schema/db"
 import * as dotenv from "dotenv"
 import jwt, { Secret } from "jsonwebtoken"
+export const userRoutes = express.Router();
 
 dotenv.config()
 
-export const userRoutes = express.Router();
 
 const userSchema = z.object({
     username: z.string().min(3).max(10),
