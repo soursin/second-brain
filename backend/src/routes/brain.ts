@@ -1,9 +1,8 @@
 import express , {Request, Response} from "express"
 import {z} from "zod"
 import { userMiddleware } from "../middleware/userMiddleware";
-import { content, link } from "../schema/db";
+import { content, link, user } from "../schema/db";
 export const brainRouter = express.Router();
-
 
 brainRouter.post("/" , userMiddleware , async (req : Request , res : Response) =>{
     const inputSchema = z.object({
@@ -34,12 +33,22 @@ brainRouter.post("/" , userMiddleware , async (req : Request , res : Response) =
         }
 
         if(req.body.share){
+            //@ts-ignore
+            const userId = req.userId
+            const existLink = await link.findOne({
+                userId : userId
+            })
+            if(existLink){
+                res.status(200).json({
+                    link : existLink.hash
+                })
+                return ;
+            }
             let code = uniqueCode(10);
             const shareLink = await link.create({
                 userId : userId,
                 hash : code
             })
-
             res.status(201).json({
                 link : code                
             })
@@ -59,13 +68,11 @@ brainRouter.post("/" , userMiddleware , async (req : Request , res : Response) =
     }
 })
 
-brainRouter.get("/:shareLink" , userMiddleware, async (req : Request , res : Response) =>{
+brainRouter.get("/:shareLink" ,async (req : Request , res : Response) =>{
     const shareLink = req.params.shareLink
     try{
-        //@ts-ignore
-        const userId = req.userId
         const findLink = await link.findOne({
-            userId : userId 
+            hash : shareLink
         })
 
         if(!findLink){
@@ -76,11 +83,23 @@ brainRouter.get("/:shareLink" , userMiddleware, async (req : Request , res : Res
         }
 
         const contents = await content.find({
-            userId : userId
-        }).populate("userId","username")
+            userId : findLink.userId
+        })
+
+        const users = await user.findOne({
+            _id : findLink.userId
+        })
+
+        if(!users){
+            res.status(403).json({
+                msg :"Might User not found"
+            })
+            return ;
+        }
         
         res.status(200).json({
-            name : contents[0].userId
+            username : users.username,
+            content : contents
         })
     }catch(e){
         res.status(500).json({

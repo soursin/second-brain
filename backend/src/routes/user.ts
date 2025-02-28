@@ -19,9 +19,7 @@ userRoutes.post("/register", async (req: Request, res: Response) => {
     const checkSchema = userSchema.safeParse(req.body);
     if (!checkSchema.success) {
         res.status(411).json({
-            data: {
-                msg: checkSchema.error
-            }
+            msg: checkSchema.error
         })
         return;
     }
@@ -32,9 +30,7 @@ userRoutes.post("/register", async (req: Request, res: Response) => {
 
         if (response) {
             res.status(403).json({
-                data: {
-                    msg: "Already a user"
-                }
+                msg: "Already a user"
             })
             return;
         }
@@ -45,15 +41,11 @@ userRoutes.post("/register", async (req: Request, res: Response) => {
         })
 
         res.status(200).json({
-            data: {
-                msg: "Successfully Registered!!!!"
-            }
+            msg: "Successfully Registered!!!!"
         })
     } catch (e) {
         res.status(500).json({
-            data: {
-                msg: `Server Error ${e}`
-            }
+            msg: `Server Error ${e}`
         })
     }
 
@@ -63,9 +55,7 @@ userRoutes.post("/login", async (req: Request, res: Response) => {
     const checkSchema = userSchema.safeParse(req.body);
     if (!checkSchema.success) {
         res.status(411).json({
-            data: {
-                msg: checkSchema.error
-            }
+            msg: checkSchema.error
         })
         return;
     }
@@ -76,9 +66,7 @@ userRoutes.post("/login", async (req: Request, res: Response) => {
 
         if (!response) {
             res.status(404).json({
-                data: {
-                    msg: "User not found"
-                }
+                msg: "User not found"
             })
             return;
         }
@@ -94,16 +82,12 @@ userRoutes.post("/login", async (req: Request, res: Response) => {
             })
         } else {
             res.status(403).json({
-                data: {
-                    msg: "Wrong Username or Password"
-                }
+                msg: "Wrong Username or Password"
             })
         }
     } catch (e) {
         res.status(500).json({
-            data: {
-                msg: `Server Error ${e}`
-            }
+            msg: `Server Error ${e}`
         })
     }
 })
