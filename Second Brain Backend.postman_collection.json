@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "a4cfe51b-f2fc-471b-ba44-7b9dc59c4ee2",
+		"name": "Second Brain Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25790789"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/v1/user/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"mybloggs22\",\n    \"password\" : \"Jeemain@2018\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/v1/user/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"mybloggs22\",\n    \"password\" : \"Jeemain@2018\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						},
+						"description": "Login Second Brain"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Content",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/v1/content",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MwNzQwMGY0MzY1NzlkMDJhN2Y3OWMiLCJpYXQiOjE3NDA3MzY1NjUsImV4cCI6MTc0MDc0MDE2NX0.z1p-bndg_Yt6xRwxfDFR2leRFW5ouDRKbWlB49eCk9A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/content",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"content"
+							]
+						},
+						"description": "Get all content for particular user"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/v1/content",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MwNzQwMGY0MzY1NzlkMDJhN2Y3OWMiLCJpYXQiOjE3NDA3MzY1NjUsImV4cCI6MTc0MDc0MDE2NX0.z1p-bndg_Yt6xRwxfDFR2leRFW5ouDRKbWlB49eCk9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/content/67c188ff482a305d176bd135",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"content",
+								"67c188ff482a305d176bd135"
+							]
+						},
+						"description": "Post Content on second brain"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/v1/content",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MwNzQwMGY0MzY1NzlkMDJhN2Y3OWMiLCJpYXQiOjE3NDA3MzY1NjUsImV4cCI6MTc0MDc0MDE2NX0.z1p-bndg_Yt6xRwxfDFR2leRFW5ouDRKbWlB49eCk9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\" : \"audio\",\n    \"title\" : \"New title\",\n    \"link\" : \"http://newlink.com\",\n    \"tag\" : []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/content/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"content",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brain",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/v1/brain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MwNzQwMGY0MzY1NzlkMDJhN2Y3OWMiLCJpYXQiOjE3NDA3MzY1NjUsImV4cCI6MTc0MDc0MDE2NX0.z1p-bndg_Yt6xRwxfDFR2leRFW5ouDRKbWlB49eCk9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"share\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/brain/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"brain",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/v1/brain/randomId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MwNzQwMGY0MzY1NzlkMDJhN2Y3OWMiLCJpYXQiOjE3NDA3MzY1NjUsImV4cCI6MTc0MDc0MDE2NX0.z1p-bndg_Yt6xRwxfDFR2leRFW5ouDRKbWlB49eCk9A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"share\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/brain/fBJQbv6BY6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"brain",
+								"fBJQbv6BY6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
